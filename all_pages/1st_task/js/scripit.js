@@ -1,10 +1,30 @@
-const mainTitle = document.querySelector('h1');
-const fontSizeProperty = window.getComputedStyle(mainTitle, null).getPropertyValue('font-size');
-
-console.log(Number(fontSizeProperty.substring(0, fontSizeProperty.length - 2)));
-console.log(fontSizeProperty);
-console.log(mainTitle);
-console.log(mainTitle.textContent);
-console.log(window.getComputedStyle(mainTitle, null));
+window.addEventListener('DOMContentLoaded', () => {
+    const changeThemeButton = document.querySelector('.header__change-color-theme-button');
+    const header = document.querySelector('.header');
+    const footer = document.querySelector('.footer');
+    const headerBurger = document.querySelector('.header__burger');
+    const headerMenu = document.querySelector('.header__menu');
 
 
+    changeThemeButton.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light');
+        document.body.classList.toggle('light');
+        header.classList.toggle('light');
+        footer.classList.toggle('light');
+    });
+
+    headerBurger.addEventListener('click', () => {
+        headerMenu.classList.toggle('__active');
+        headerBurger.classList.toggle('__active');
+        document.body.style.cssText = 'overflow: hidden;';
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            if (headerBurger.classList.contains('__active') && headerMenu.classList.contains('__active')) {
+                headerBurger.classList.remove('__active');
+                headerMenu.classList.remove('__active');
+            }
+        }
+    });
+});
