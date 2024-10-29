@@ -30,6 +30,23 @@
             </div>
         </header>
         <main class="main">
+            <div class="main__form-container">
+                <h1 class="main__form-title">Заполните форму</h1>
+                <form action="post" class="main__form">
+                    <input type="number" placeholder="Введите 1-е число">
+                    <input type="number" placeholder="Введите 2-е число">
+                    <select name="country">
+                        <option value disabled selected>Выберите арифметическую операцию</option>
+                        <option>+ (Плюс)</option>
+                        <option>- (Минус)</option>
+                        <option>* (Умножить)</option>
+                        <option>/ (Разделить)</option>
+                        <option>% (Остаток от деления 1-го числа на 2-е)</option>
+                        <option>% (Остаток от деления 2-го числа на 1-е)</option>
+                    </select>
+                    <button type="submit" class="main__form-submit-button">Посчитать</button>
+                </form>
+            </div>
         </main>
         <footer class="footer">Footer</footer>
     </div>
