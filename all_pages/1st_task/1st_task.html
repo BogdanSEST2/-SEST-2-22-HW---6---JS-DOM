@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=375">
     <link rel="stylesheet" href="./css/style.css">
-    <title>1. Арифметические операциы</title>
+    <title>1. Калькулятор чисел</title>
 </head>
 <body>
     <div class="wrapper">
@@ -30,22 +30,24 @@
             </div>
         </header>
         <main class="main">
-            <div class="main__form-container">
-                <h1 class="main__form-title">Заполните форму</h1>
-                <form action="post" class="main__form">
-                    <input type="number" placeholder="Введите 1-е число">
-                    <input type="number" placeholder="Введите 2-е число">
-                    <select name="country">
-                        <option value disabled selected>Выберите арифметическую операцию</option>
-                        <option>+ (Плюс)</option>
-                        <option>- (Минус)</option>
-                        <option>* (Умножить)</option>
-                        <option>/ (Разделить)</option>
-                        <option>% (Остаток от деления 1-го числа на 2-е)</option>
-                        <option>% (Остаток от деления 2-го числа на 1-е)</option>
-                    </select>
-                    <button type="submit" class="main__form-submit-button">Посчитать</button>
-                </form>
+            <div>
+                <p class="main__form-text">Калькулятор чисел</p>
+                <div class="main__form-container">
+                    <h1 class="main__form-title">Заполните форму</h1>
+                    <form action="post" class="main__form">
+                        <input type="number" placeholder="Введите 1-е число">
+                        <input type="number" placeholder="Введите 2-е число">
+                        <select name="country">
+                            <option value disabled selected>Выберите арифметическую операцию</option>
+                            <option>+ (Плюс)</option>
+                            <option>- (Минус)</option>
+                            <option>* (Умножить)</option>
+                            <option>/ (Разделить)</option>
+                        </select>
+                        <button type="submit" class="main__form-submit-button">Посчитать</button>
+                        <button type="reset" class="main__form-reset">Сборсить</button>
+                    </form> 
+                </div>
             </div>
         </main>
         <footer class="footer">Footer</footer>
