@@ -19,13 +19,11 @@ window.addEventListener('DOMContentLoaded', () => {
         [document.body, header, footer].forEach(el => el.classList.toggle('light'));
     });
 
-
     headerBurger?.addEventListener('click', () => {
         headerMenu.classList.toggle('__active');
         headerBurger.classList.toggle('__active');
         document.body.style.overflow = headerBurger.classList.contains('__active') ? 'hidden' : '';
     });
-
 
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 768 && headerBurger.classList.contains('__active')) {
@@ -35,37 +33,48 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     firstInput?.addEventListener('input', () => firstValue = firstInput.value);
     secondInput?.addEventListener('input', () => secondValue = secondInput.value);
 
-
     form?.addEventListener('submit', (event) => {
-        event.preventDefault(); 
-        let result = 'Заполните форму';
-        const num1 = Number(firstValue);
-        const num2 = Number(secondValue);
+        event.preventDefault();
+        if (firstValue !== '' && secondValue !== '') {
+            let result = 'Заполните форму';
+            const num1 = Number(firstValue);
+            const num2 = Number(secondValue);
 
-        switch (selectBlock?.value[0]) {
-            case '+':
-                result = `${firstValue} + ${secondValue} = ${num1 + num2}`;
-                break;
-            case '-':
-                result = `${firstValue} - ${secondValue} = ${num1 - num2}`;
-                break;
-            case '*':
-                result = `${firstValue} * ${secondValue} = ${num1 * num2 % 1 === 0 ? num1 * num2 : (num1 * num2).toFixed(3)}`;
-                break;
-            case '/':
-                result = num2 !== 0 ? 
-                    `${firstValue} / ${secondValue} = ${num1 / num2 % 1 === 0 ? num1 / num2 : (num1 / num2).toFixed(3)}` :
-                    'Деление на 0 невозможно';
-                break;
-            default:
-                break;
+            if (!selectBlock.value) {
+                alert('Вы не выбрали арифметическую операцию. Пожалуйста, исправьте данную ситуацию!!!');
+                return;
+            }
+
+            switch (selectBlock?.value[0]) {
+                case '+':
+                    result = `${firstValue} + ${secondValue} = ${num1 + num2}`;
+                    break;
+                case '-':
+                    result = `${firstValue} - ${secondValue} = ${num1 - num2}`;
+                    break;
+                case '*':
+                    result = `${firstValue} * ${secondValue} = ${num1 * num2 % 1 === 0 ? num1 * num2 : (num1 * num2).toFixed(3)}`;
+                    break;
+                case '/':
+                    result = num2 !== 0 ? 
+                        `${firstValue} / ${secondValue} = ${num1 / num2 % 1 === 0 ? num1 / num2 : (num1 / num2).toFixed(3)}` :
+                        'Деление на 0 невозможно';
+                    break;
+                default:
+                    break;
+            }
+
+            mainFormTitle.textContent = result;
+        } else if (firstValue === '' && secondValue !== '') {
+            alert('Вы не ввели 1-е число. Пожалуйста, исправьте данную ситуаацию!!!');
+        } else if (firstValue !== '' && secondValue === '') {
+            alert('Вы не ввели 2-е число. Пожалуйста, исправьте данную ситуаацию!!!');
+        } else {
+            alert('Нужно ввести оба числа для совершения операции!!!');
         }
-        
-        mainFormTitle.textContent = result;
     });
 
     resetButton?.addEventListener('click', () => {
