@@ -159,7 +159,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .header__menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -180,6 +180,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .header__menu-list {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     border: 1px solid white;
     border-radius: 5px;
@@ -201,9 +203,11 @@ input[type="number"]::-webkit-outer-spin-button {
 .main {
     flex: 1 1 auto;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 35px 15px;
 }
 .main > div {
     background: rgb(41, 38, 38);
@@ -212,6 +216,8 @@ input[type="number"]::-webkit-outer-spin-button {
     border: 1px solid gray;
     max-width: 700px;
     width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
 }
 .main__form-container {
     background: rgb(56, 55, 55);
@@ -224,7 +230,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .main__form-text {
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 20px;
     letter-spacing: 3px;
 }

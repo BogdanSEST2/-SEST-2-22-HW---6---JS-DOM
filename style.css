@@ -180,6 +180,7 @@ html.light, body.light {
 
 .main {
     flex: 1 1 auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

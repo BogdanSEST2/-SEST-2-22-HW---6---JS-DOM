@@ -175,6 +175,8 @@ html.light, body.light {
 .header__menu-list {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     border: 1px solid white;
     border-radius: 5px;

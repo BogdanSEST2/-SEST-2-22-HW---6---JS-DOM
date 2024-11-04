@@ -11,29 +11,30 @@ window.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.querySelector('.main__container');
 
 
-    changeThemeButton.addEventListener('click', () => {
+    changeThemeButton?.addEventListener('click', () => {
         document.documentElement.classList.toggle('light');
         document.body.classList.toggle('light');
         header.classList.toggle('light');
         footer.classList.toggle('light');
     });
 
-    headerBurger.addEventListener('click', () => {
+    headerBurger?.addEventListener('click', () => {
         headerMenu.classList.toggle('__active');
         headerBurger.classList.toggle('__active');
         document.body.style.cssText = 'overflow: hidden;';
+        document.body.style.overflow = headerBurger.classList.contains('__active') ? 'hidden' : '';
     });
 
-    window.addEventListener('resize', () => {
+    window?.addEventListener('resize', () => {
         if (window.innerWidth >= 768) {
             if (headerBurger.classList.contains('__active') && headerMenu.classList.contains('__active')) {
                 headerBurger.classList.remove('__active');
                 headerMenu.classList.remove('__active');
+                document.body.style.overflow = '';
             }
         }
     });
 
-    
     const renderAllPictures = () => {
         for (let i = 0; i < myGalleryDatabase.length; i++) {
             const mainImgCard = document.createElement('div');
@@ -56,11 +57,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     mainContainer.addEventListener('click', (e) => {
+        const popup = document.querySelector('.popup__picture-menu');
+        const popupImg = document.querySelector('.popup__picture-img-block img');
+        const popupCloseButton = document.querySelector('.popup__picture-img-block button');
+
+
         if (e.target.closest('.main__img-card')) {
-            console.log(1);
+            const currentImagePath = e.target.parentNode.firstElementChild.firstElementChild.getAttribute('src');
+            const currentAltTextToImg = e.target.parentNode.firstElementChild.firstElementChild.getAttribute('alt');
+            
+            popupImg.setAttribute('src', currentImagePath);
+            popupImg.setAttribute('alt', currentAltTextToImg);
+            document.body.style.cssText = 'overflow: hidden;';
+            
+            setTimeout(() => {
+                popup.classList.add('__active');
+            }, 100);
         } else {
             console.log(0);   
         }
+
+        popupCloseButton.addEventListener('click', () => {
+            popup.classList.remove('__active');
+            document.body.style.cssText = 'overflow: auto;';
+        });
     });
 
     
