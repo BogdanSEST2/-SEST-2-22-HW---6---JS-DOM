@@ -30,6 +30,31 @@
             </div>
         </header>
         <main class="main">
+            <div class="main__popup-message-success">
+                <div class="main__popup-body">
+                    <button class="main__popup-close"></button>
+                    <h2 class="main__popup-success-title">Регистрация прошла успешно!</h2>
+                    <div class="main__popup-tick-block">
+                        <div class="main__popup-tick">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="main__title">Форма с валидацией</h1>
+            <form action="#" class="main-form">
+                <h2 class="main__subtitle-criterias">Обязательные критерии для регистрации на сайте расписаны в списке ниже!!!</h2>
+                <ul class="main__form-list">
+                    <li>1. Поле “Имя” не может быть пустым.</li>
+                    <li>2. Поле “Email” должно содержать символы “@” и “.”.</li>
+                    <li>3. Поле “Пароль” должно содержать минимум 8 символов.</li>
+                </ul>
+                <input type="text" placeholder="Имя">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="main__button-submit">Отправить</button>
+                <button type="reset" class="main__button-reset">Сбросить</button>
+            </form>
         </main>
         <footer class="footer">Footer</footer>
     </div>
